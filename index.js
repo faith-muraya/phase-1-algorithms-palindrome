@@ -1,5 +1,18 @@
 function isPalindrome(word) {
-  // Write your algorithm here
+  const cleanString = word.toLowerCase().replace(/[^a-z]/g, "");
+
+  // Step 2: Check if the string is empty or has only one character.
+  if (cleanString.length <= 1) {
+    return true;
+  }
+
+  // Step 3: Compare the first and last characters of the string.
+  if (cleanString[0] !== cleanString[cleanString.length - 1]) {
+    return false;
+  }
+
+  // Step 4: Recursively call the function on the substring without the first and last characters.
+  return isPalindrome(cleanString.substring(1, cleanString.length - 1));
 }
 
 /* 
